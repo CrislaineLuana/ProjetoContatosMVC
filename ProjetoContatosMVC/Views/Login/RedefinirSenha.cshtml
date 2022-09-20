@@ -1,0 +1,31 @@
+﻿@model RedefinirSenhaModel
+@{
+    Layout = "_LayoutDeslogada";
+	ViewData["Title"] = "Redefinir Senha";
+}
+
+   
+@if(TempData["MensagemErro"] != null)
+                            {
+                                 <div class="alert alert-danger " role="alert">                                 
+                                   @TempData["MensagemErro"]
+                                </div>
+                            }            
+                            
+
+<form asp-action="EnviarLinkParaRedefinirSenha" asp-controller="Login" method="post">
+    <h3>Redefinir Senha</h3>
+  <div class="mb-3">
+    <label for="" class="form-label">Login</label>
+    <input type="text" asp-for="Login" class="form-control" placeholder="Digite seu login!">
+    <span asp-validation-for="Login" ></span>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label" >Email</label>
+    <input type="email" asp-for="Email" class="form-control" id="senha" placeholder="Digite seu e-mail cadastrado">
+    <span asp-validation-for="Email" ></span>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-block">Redefinir Senha</button>
+  <a asp-action="Index" asp-controller="Login" class="btn-secondary btn btn-block">Voltar</a>
+</form>

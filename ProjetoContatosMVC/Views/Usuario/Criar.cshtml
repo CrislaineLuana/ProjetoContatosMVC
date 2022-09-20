@@ -1,0 +1,48 @@
+﻿@using ProjetoContatosMVC.Enums
+@model UsuarioModel
+@{
+	ViewData["Title"] = "Cadastro de Usuários";
+}
+<div class="text-center" >
+    <h1 class="display-4 mb-5">Cadastro de usuários</h1> 
+</div>
+
+
+<form method="post" asp-controller="Usuario" asp-action="Criar" >
+          <div class="mb-3">
+            <label for="Nome" class="form-label">Nome</label>
+            <input asp-for=Nome type="text" class="form-control" id="inputNome" placeholder="Digite o nome do usuário!" >
+            <span class="error-validation" asp-validation-for="Nome"></span>
+          </div>
+
+          <div class="mb-3">
+            <label for="Login" class="form-label">Login</label>
+            <input asp-for=Login type="text" class="form-control" id="inputLogin" placeholder="Digite o login do usuário!">
+            <span class="error-validation" asp-validation-for="Login"></span>
+          </div>
+
+          <div class="mb-3">
+            <label for="Email" class="form-label">E-mail</label>
+            <input asp-for=Email type="email" class="form-control" id="inputEmail" placeholder="Digite o e-mail do usuário!">
+            <span class="error-validation" asp-validation-for="Email"></span>
+          </div>
+
+          <div class="mb-3">
+              <label for="Perfil" class="form-label">Perfil</label>
+                 <select asp-for="Perfil"  class="form-control">
+                  <option value="">Selecione</option>
+                  <option value="@PerfilEnum.Admin">Administrador</option>
+                  <option value="@PerfilEnum.Padrao">Padrão</option>
+                 </select>   
+                  <span class="error-validation" asp-validation-for="Perfil"></span>  
+          </div>
+
+          <div class="mb-3">
+            <label for="Email" class="form-label">Senha</label>
+            <input asp-for=Senha type="password" class="form-control" id="inputSenha" placeholder="Digite a senha do usuário!">
+            <span class="error-validation" asp-validation-for="Senha"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+          <a role="button" class="btn-secondary btn btn-block" asp-controller="Usuario" asp-action="Index">Voltar</a>
+</form>

@@ -1,0 +1,80 @@
+﻿@using ProjetoContatosMVC.Enums
+@model UsuarioModel
+
+@if(Model.Perfil == PerfilEnum.Admin)
+{
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Olá, @Model.Nome</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Página Inicial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Contato" asp-action="Index" >Contatos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index" >Usuários</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="AlterarSenha" asp-action="Index">Altera Senha</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Sair">Sair de @Model.Email</a>
+                        </li>
+                    </ul>
+                    @if(TempData["MensagemSucesso"] != null)
+                            {
+                                 <div class="alert alert-success" role="alert">                                   
+                                    @TempData["MensagemSucesso"]
+                                </div>
+                            }
+   
+                            @if(TempData["MensagemErro"] != null)
+                            {
+                                 <div class="alert alert-danger " role="alert">                                 
+                                   @TempData["MensagemErro"]
+                                </div>
+                            }
+    </div>
+} else if (Model.Perfil == PerfilEnum.Padrao)
+{
+     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Olá, @Model.Nome</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Página Inicial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Contato" asp-action="Index" >Contatos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="AlterarSenha" asp-action="Index">Altera Senha</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Sair">Sair de @Model.Email</a>
+                        </li>
+
+                    </ul>
+                    @if(TempData["MensagemSucesso"] != null)
+                            {
+                                 <div class="alert alert-success" role="alert">                                   
+                                    @TempData["MensagemSucesso"]
+                                </div>
+                            }
+   
+                            @if(TempData["MensagemErro"] != null)
+                            {
+                                 <div class="alert alert-danger " role="alert">                                 
+                                   @TempData["MensagemErro"]
+                                </div>
+                            }
+    </div>
+}
